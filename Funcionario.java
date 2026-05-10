@@ -1,38 +1,41 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Funcionario extends Pessoa{
 	private Documentos documentos;
-	int id;
-	double salario;
-	String profissao;
-	int admisao;
-	String turno;
+	private double salario;
+	private String profissao;
+	private LocalDate admisao;
+	private String turno;
+	private int diaFalta;
+	private int mesFalta;
+	private double horaExtra;
+	private double valorHoraExtra;
+	//LocalDate data;
 	
 	//construtor
 	public Funcionario() {
-		super();
+		//super();
 		this.documentos = new Documentos();
-		this.id = 0;
 		this.salario = 0.0;
 		this.profissao = "";
-		this.admisao = 0;
+		this.admisao = LocalDate.now();
 		this.turno = "";
 	}
-	public Funcionario(int id, double salario,String profissao, int admisao,
+	public Funcionario(double salario,String profissao, LocalDate admisao,
 			String turno) {
 		super();
 		this.documentos = new Documentos();
-		this.id = id;
 		this.salario = salario;
 		this.profissao = profissao;
 		this.admisao = admisao;
 		this.turno = turno;
 		super.getNome();
 	}
-	public Funcionario(Documentos documentos, int id, double salario, String profissao, int admisao,
-						String turno) {
+	public Funcionario(Documentos documentos,double salario, String profissao, LocalDate admisao,String turno) {
 		super();
 		this.documentos = documentos;
-		this.id = id;
 		this.salario = salario;
 		this.profissao = profissao;
 		this.admisao = admisao;
@@ -45,22 +48,16 @@ public class Funcionario extends Pessoa{
 	public void setDocumentos(Documentos documentos) {
 		this.documentos = documentos;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getProfissao() {
 		return profissao;
 	}
 	public void setProfissao(String profissao) {
 		this.profissao = profissao;
 	}
-	public int getAdmisao() {
+	public LocalDate getAdmisao() {
 		return admisao;
 	}
-	public void setAdmisao(int admisao) {
+	public void setAdmisao(LocalDate admisao) {
 		this.admisao = admisao;
 	}
 	public String getTurno() {
@@ -75,6 +72,45 @@ public class Funcionario extends Pessoa{
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}	
+	public int getDiaFalta() {//mostra o dia que faltou
+		return diaFalta;
+	}
+	public void setDiaFalta(int diafalta) {
+		this.diaFalta = diafalta;
+		if(this.diaFalta >= 0 && this.diaFalta <= 31) {
+			this.mesFalta += this.diaFalta;
+		}else {
+			this.mesFalta = this.mesFalta;
+		}
+	}
+	public int getMesfalta() {
+		if(this.mesFalta > 31) {
+			System.out.print("Erro! As faltam não podem ser maior que 31 dias");
+			return 0;
+		}else {
+			return mesFalta;
+		}
+	}
+	public double descontoFalta() {
+		return (this.salario / 30) * this.getDiaFalta();
+	}
+	public double getSalarioDescontado() {
+		return this.getSalario() - this.descontoFalta();
+	}
+	public double getHoraExtra() {//Exibe o tatal em horas extras trabalhados
+		return horaExtra;
+	}
+	public void setHoraExtra(double horaExt) {
+		this.horaExtra = horaExt;
+		valorTotalHoraExtra(this.horaExtra);
+	}
+	public void valorTotalHoraExtra(double value) {//calcula o total em real das horas extras 
+		this.valorHoraExtra = (getSalario()/30) * getHoraExtra();
+	}
+	public double getValorHoraExtra() {//exibe o valor total em real R$ das horas extras
+		return valorHoraExtra;
+	}
+	
 	//Methods Documentos
 	public void cadastrarCpf(String cpf) {
 		this.documentos.setCpf(cpf);
@@ -89,6 +125,7 @@ public class Funcionario extends Pessoa{
 		return documentos.getRg();
 	}
 	
+	DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	@Override
 	public void status() {
 		System.out.println("Nome: " + this.getNome() + " Idade: " + this.getIdade() + " anos "
@@ -97,15 +134,16 @@ public class Funcionario extends Pessoa{
 		System.out.println("Celular: " + this.getContatos().getCeclular());
 		System.out.println("Salário: R$" + this.getSalario() + " Turno:" + this.getTurno() 
 									+ " Função: " + this.getProfissao() 
-									+ " Data Admissão: " + this.getAdmisao());
+									+ " Data Admissão: " + this.getAdmisao().format(fmt));
 	}
+	@Override
 	public void statusCompleto() {
 		System.out.println("Nome: " + this.getNome() + " Idade: " + this.getIdade() + " anos "
 				+ "Altura " + this.getAltura() + " Peso: " + this.getPeso());
 		System.out.println("Celular: " + this.getContatos().getCeclular() + " Celular 02: " + this.getContatos().getTelefone()
 				+ "\nEmail: " + this.getContatos().getEmail());
 		System.out.println("Salário: R$" + this.getSalario() + " Turno:" + this.getTurno() 
-				+ " Função: " + this.getProfissao() + " Data Admissão: " + this.getAdmisao());
+				+ " Função: " + this.getProfissao() + " Data Admissão: " + this.getAdmisao().format(fmt));
 		System.out.println("Estado: " + this.getEndereco().getEstado() + " Cidade: " + this.getEndereco().getCidade()
 				+ "\nBairro: " + this.getEndereco().getBairro() + " Rua: " + this.getEndereco().getRua() + " Nº casa: " + this.getEndereco().getNumCasa()
 				+ "\nPonto de referencia: " + this.getEndereco().getPontoReferencia());
