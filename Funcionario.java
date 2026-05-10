@@ -91,16 +91,23 @@ public class Funcionario extends Pessoa{
 	
 	@Override
 	public void status() {
-		System.out.println("Nome: " + this.getNome() + " Idade: " 
-									+ this.getIdade() + " anos "
+		System.out.println("Nome: " + this.getNome() + " Idade: " + this.getIdade() + " anos "
 									+ "Altura " + this.getAltura()
 									+ " Peso: " + this.getPeso());
-		System.out.println("Salário: R$" + this.getSalario() + " Turno:"
-									+ this.getTurno() + " Função: "
-									+ this.getProfissao() 
+		System.out.println("Celular: " + this.getContatos().getCeclular());
+		System.out.println("Salário: R$" + this.getSalario() + " Turno:" + this.getTurno() 
+									+ " Função: " + this.getProfissao() 
 									+ " Data Admissão: " + this.getAdmisao());
 	}
 	public void statusCompleto() {
-		
+		System.out.println("Nome: " + this.getNome() + " Idade: " + this.getIdade() + " anos "
+				+ "Altura " + this.getAltura() + " Peso: " + this.getPeso());
+		System.out.println("Celular: " + this.getContatos().getCeclular() + " Celular 02: " + this.getContatos().getTelefone()
+				+ "\nEmail: " + this.getContatos().getEmail());
+		System.out.println("Salário: R$" + this.getSalario() + " Turno:" + this.getTurno() 
+				+ " Função: " + this.getProfissao() + " Data Admissão: " + this.getAdmisao());
+		System.out.println("Estado: " + this.getEndereco().getEstado() + " Cidade: " + this.getEndereco().getCidade()
+				+ "\nBairro: " + this.getEndereco().getBairro() + " Rua: " + this.getEndereco().getRua() + " Nº casa: " + this.getEndereco().getNumCasa()
+				+ "\nPonto de referencia: " + this.getEndereco().getPontoReferencia());
 	}
 }
