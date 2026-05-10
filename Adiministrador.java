@@ -3,47 +3,28 @@ import java.util.Scanner;
 public class Adiministrador {
 
 	public static void main(String[] args) {
-		Funcionario f1 = new Funcionario();
-			
-		//Documentos
-		f1.cadastrarEstado("Pe");
-		f1.cadastrarCidade("Toritama");
-		f1.cadastrarBairro("Deus é Fiel");
-		f1.cadastrarCepCidade(5515000);
-		f1.cadastrarPontoReferencia("Auto escola toritama");
+		Funcionario func = new Funcionario();
+		Documentos dc = new Documentos("85145","222","222");
 		
-		f1.setNome("Jhonata wallas carvalho silva");
-		f1.setIdade(34);
-		f1.setPeso(70);
-		f1.setAltura(1.75f);
-	
-		//documentos
-		f1.cadastarRg("0000212");
-		f1.cadastrarCpf("000");
-	
-		//contatos
-		f1.cadastrarCelular("(81) 856956");
-		f1.cadastrarEmail("jonatasimples231@gmail.com");
 		
-		//funcionario
-		f1.setSalario(1.680);
-		f1.setTurno("Dia");
-		f1.setProfissao("ADS");
-		f1.statusAtual();
+		func.setNome("Jhonata");
+		func.setIdade(35);
+		func.setAltura(1.68f);
+		func.status();
+		func.setDocumentos(dc);
+		func.setEndereco(null);
 		
-		cliente();
+		Cliente cl = new Cliente();
+		Documentos doc = new Documentos();
+		Endereco en = new Endereco("PE", "Toritama", "Deus é fiel", "Adelson silva", "castro",10);
+		cl.setNome("Neves");
+		doc.setCnpj("512/1111");
+		cl.setDocumentos(doc);
+		cl.setPessJuridica(false);
+		cl.setEndereco(en);
+		
+		cl.statusCompleto();
+		
 	}
-	public static void cliente() {
-		Cliente c1 = new Cliente();
-		//
-		c1.setPessJuridica(false);
-		c1.setNome("jhonata wallas varvalh sivla");
-		c1.cadastarCnpj("000120/215");
-		c1.cadastrarEstado("Pe");
-		c1.cadastrarCidade("toritama");
-		c1.cadastrarBairro("Deus é fiel");
-		c1.cadastrarRua("Adelson silva");
-		
-		c1.status();
-	}
+	
 }

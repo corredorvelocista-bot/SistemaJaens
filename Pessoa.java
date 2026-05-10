@@ -1,12 +1,17 @@
-public class Pessoa {
+public abstract class Pessoa {
 	private String nome;
 	private int idade;
 	private float peso;
 	private float altura;
 	private String sexo;
+	private Endereco enderec;
+	private Contatos contat;
 		
-	//Construtor e Sobre carga
+	//Construtor e Sobrecarga
 	public Pessoa() {
+		super();
+		this.enderec = new Endereco();
+		this.contat = new Contatos();
 		nome = "";
 		idade = 0;
 		peso = 0;
@@ -55,30 +60,23 @@ public class Pessoa {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	//Methods, cadastrar e imprimir dados
-	public void cadastrarNome(String nome) {
-		setNome(nome);
+	
+	public void setEndereco(Endereco ende) {
+		this.enderec = ende;
 	}
-	public void cadastarIdade(int idade) {
-		setIdade(idade);
+	public Endereco getEndereco() {
+		return enderec;
 	}
-	public void cadastrarPeso(float peso) {
-		setPeso(peso);
+	public void setContatos(Contatos contat) {
+		this.contat = contat;
 	}
-	public void cadastrarAltura(float altura) {
-		setAltura(altura);
+	public Contatos getContatos() {
+		return contat;
 	}
-	public void imprimiNome() {
-		System.out.println(this.nome);
-	}
-	public void imprimIdade() {
-		System.out.println(this.getIdade());
-	}
-	public void imprimiPeso() {
-		System.out.println(this.getPeso());
-	}
-	public void imprimirAltura() {
-		System.out.print(this.getAltura());
-	}
+	
+	public abstract void status();
+	public abstract void statusCompleto();
+		
+	
 	
 }

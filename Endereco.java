@@ -23,6 +23,14 @@ public class Endereco {
 		cepRua = 0;
 		contato = 0;
 	}
+	public Endereco(String estado, String cidade, String bairro, String rua, String pontoReferencia, int numCasa) {
+		this.estado = estado;
+		this.cidade = cidade;
+		this.bairro = bairro;
+		this.rua = rua;
+		this.pontoReferencia = pontoReferencia;
+		this.numCasa = numCasa;
+	}
 	public Endereco(String estado, String cidade, String bairro, String rua, String pontoReferencia, int numCasa, int cepCidade, int cepBairro, int cepRua, int contato) {
 		this.estado = estado;
 		this.cidade = cidade;

@@ -3,8 +3,7 @@ public class Contatos {
 	private String ceclular;
 	private String telefone;
 	private String email;
-	
-	
+		
 	public Contatos() {
 		this.ceclular = "";
 		this.telefone = "";
