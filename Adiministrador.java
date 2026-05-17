@@ -19,7 +19,10 @@ public class Adiministrador {
 		pr.setCasaQuantd(2);
 		pr.setRiataQuantd(6);
 		pr.setCliente(cl);
-		pr.status();
+		pr.setPreco(0.50);
+		//String format = String.format("%.4f", pr.getPreco());
+		pr.statusCmpleto();
+		
 		
 		
 		

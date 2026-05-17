@@ -1,4 +1,6 @@
 import java.util.Date;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.time.LocalDate;
 
 public class PecaRoupa{
@@ -9,14 +11,13 @@ public class PecaRoupa{
 	private int casaQuantd;
 	private int riataQuantd;
 	private double preco;
-	private float precoTotal;
+	private double valorTotal;
 	private LocalDate dataEntrada;
 	private LocalDate dataSaida;
 	private int quantdPeca;
 	private Cliente cliente;
-	
-	public PecaRoupa() {
 		
+	public PecaRoupa() {
 		this.cliente = new Cliente();
 		this.modeloRoupa = "";
 		this.cor = "";
@@ -24,13 +25,12 @@ public class PecaRoupa{
 		this.casaQuantd = 0;
 		this.riataQuantd = 0;
 		this.preco = 0f;
-		this.precoTotal = 0;
+		this.valorTotal = 0;
 		this.dataEntrada = LocalDate.now();
 		this.dataSaida = LocalDate.now();
 		this.quantdPeca = 0;
 	}
-	public PecaRoupa(String modeloRoupa, String cor, String corLinha, int CasaQuantd, int riataQuantd, double preco, float precoTotal,LocalDate dataEntrada, LocalDate dataSaida ,int quantdPeca, Cliente cliente) {
-		
+	public PecaRoupa(String modeloRoupa, String cor, String corLinha, int CasaQuantd, int riataQuantd, double preco, LocalDate dataEntrada, LocalDate dataSaida ,int quantdPeca, Cliente cliente) {
 		this.modeloRoupa = modeloRoupa;
 		this.cor = cor;
 		this.corLinha = corLinha;
@@ -99,12 +99,10 @@ public class PecaRoupa{
 	public void setDataSaida(LocalDate dataSaida) {
 		this.dataSaida = dataSaida;
 	}
-	public float getPrecoTotal() {
-		return precoTotal;
+	public double getValorTotal() {
+		return valorTotal = this.getQuantdPeca() * this.getPreco();
 	}
-	public void setPrecoTotal(float precoTotal) {
-		this.precoTotal = precoTotal;
-	}
+	
 	public int getQuantdPeca() {
 		return quantdPeca;
 	}
@@ -112,18 +110,22 @@ public class PecaRoupa{
 		this.quantdPeca = qtdPeca;
 	}
 	
-	protected static void CalcularPreco(int quantdPeca, double preco){
-		double resultado = quantdPeca * preco;
-		System.out.println("Valor: R$ " +resultado);
-	}
 	public void status() {
-		System.out.print("Cliente: " + getCliente().getNome() + " Celular: " + getCliente().celular()+ " Modelo: " + this.getModeloRoupa() 
-					+ " Quantidade: " + this.getQuantdPeca() + " Quantidade casa: " + this.getcasaQuantd()
-					+ " Quantidade Riata: " + this.getRiataQuantd());
+		System.out.print("Cliente: " + getCliente().getNome() + " Celular: " + getCliente().celular()
+						+ "\nModelo: " + this.getModeloRoupa() + " Quantidade de peça " + getQuantdPeca()
+						+ "\nPreço: R$ " + getPreco()
+						+ "Quantidade casa: " + this.getcasaQuantd()+ " Quantidade Riata: " + this.getRiataQuantd()
+					 + "\nValor: R$ " + this.getValorTotal());
 	}
 	public void statusCmpleto() {
-		System.out.print("Cliente: " + getCliente().getNome() + " Modelo: " + this.getModeloRoupa() 
-		+ " Quantidade: " + this.getQuantdPeca() + " Quantidade casa: " + this.getcasaQuantd()
-		+ " Quantidade Riata: " + this.getRiataQuantd());
-}
+		System.out.print("Cliente: " + getCliente().getNome() + " Celular: " + getCliente().celular()
+				+ "\nEndereco: " 
+				+ "\nCidade: "+ getCliente().getEndereco().getCepCidade() + 
+				"Bairro: "+ getCliente().getEndereco().getBairro() + "Rua: " + getCliente().getEndereco().getRua() + " "
+				+"\nProdução" 
+				+"\nModelo: " + this.getModeloRoupa() + " Quantidade de peça " + getQuantdPeca()
+				+ "\nPreço: R$ " + getPreco()
+				+ "Quantidade casa: " + this.getcasaQuantd()+ " Quantidade Riata: " + this.getRiataQuantd()
+			 + "\nValor: R$ " + this.getValorTotal());
+	}
 }
