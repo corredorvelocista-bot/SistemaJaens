@@ -45,9 +45,15 @@ public class Cliente extends Pessoa{
 	public Documentos getDocumentos() {
 		return documentos;
 	}
+	
+	public String celular() {
+		return this.getContatos().getCeclular();
+	}
+	@Override
 	public void status() {
 		if(this.pessJuridica == true) {
 			System.out.print("Cliente: " + this.getNome() + " CNPJ: " + this.getDocumentos().getCnpj()
+							+ " Celular: " + this.getContatos().getCeclular()
 							+ " Estado: " + this.getEndereco().getEstado() + "\nCidade: " + this.getEndereco().getCidade()
 							+ " Bairro: " + this.getEndereco().getBairro() + "\nRua: " + this.getEndereco().getRua());
 		}else {
@@ -56,6 +62,7 @@ public class Cliente extends Pessoa{
 							+ " Bairro: " + this.getEndereco().getBairro() + "\nRua: " + this.getEndereco().getRua());
 		}
 	}
+	@Override
 	public void statusCompleto() {
 		if(this.pessJuridica == true) {
 			System.out.print("Cliente: " + this.getNome() + " CNPJ: " + this.getDocumentos().getCnpj()

@@ -4,23 +4,25 @@ public abstract class Pessoa {
 	private float peso;
 	private float altura;
 	private String sexo;
-	private Endereco enderec;
-	private Contatos contat;
+	private Endereco endereco;
+	private Contatos contatos;
 		
 	//Construtor e Sobrecarga
 	public Pessoa() {
 		super();
-		this.enderec = new Endereco();
-		this.contat = new Contatos();
+		this.endereco = new Endereco();
+		this.contatos = new Contatos();
 		nome = "";
 		idade = 0;
 		peso = 0;
 		sexo = "";
 	}
 	public Pessoa(String nome) {
+		this();
 		this.nome = nome;
 	}
 	public Pessoa(String nome, int idade, float peso, float altura, String sexo) {
+		this();
 		this.nome = nome;
 		this.idade = idade;
 		this.peso = peso;
@@ -60,18 +62,17 @@ public abstract class Pessoa {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	
 	public void setEndereco(Endereco ende) {
-		this.enderec = ende;
+		this.endereco = ende;
 	}
 	public Endereco getEndereco() {
-		return enderec;
+		return endereco;
 	}
 	public void setContatos(Contatos contat) {
-		this.contat = contat;
+		this.contatos = contat;
 	}
 	public Contatos getContatos() {
-		return contat;
+		return contatos;
 	}
 	
 	public abstract void status();

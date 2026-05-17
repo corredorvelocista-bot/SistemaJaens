@@ -16,7 +16,7 @@ public class Funcionario extends Pessoa{
 	
 	//construtor
 	public Funcionario() {
-		//super();
+		super();
 		this.documentos = new Documentos();
 		this.salario = 0.0;
 		this.profissao = "";
@@ -134,7 +134,8 @@ public class Funcionario extends Pessoa{
 		System.out.println("Celular: " + this.getContatos().getCeclular());
 		System.out.println("Salário: R$" + this.getSalario() + " Turno:" + this.getTurno() 
 									+ " Função: " + this.getProfissao() 
-									+ " Data Admissão: " + this.getAdmisao().format(fmt));
+									+ " Data Admissão: " + this.getAdmisao().format(fmt)
+									+ "\n");
 	}
 	@Override
 	public void statusCompleto() {
