@@ -1,0 +1,135 @@
+package com.sistemajeans.producao;
+import java.util.Date;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+import com.sistemajeans.recursoshumanos.Cliente;
+
+import java.time.LocalDate;
+
+public class PecaRoupa{
+	
+	private String modeloRoupa;
+	private String cor;
+	private String corLinha;
+	private int casaQuantd;
+	private int riataQuantd;
+	private double preco;
+	private double valorTotal;
+	private LocalDate dataEntrada;
+	private LocalDate dataSaida;
+	private int quantdPeca;
+	private Cliente cliente;
+		
+	public PecaRoupa() {
+		this.cliente = new Cliente();
+		this.modeloRoupa = "";
+		this.cor = "";
+		this.corLinha = "";
+		this.casaQuantd = 0;
+		this.riataQuantd = 0;
+		this.preco = 0f;
+		this.valorTotal = 0;
+		this.dataEntrada = LocalDate.now();
+		this.dataSaida = LocalDate.now();
+		this.quantdPeca = 0;
+	}
+	public PecaRoupa(String modeloRoupa, String cor, String corLinha, int CasaQuantd, int riataQuantd, double preco, LocalDate dataEntrada, LocalDate dataSaida ,int quantdPeca, Cliente cliente) {
+		this.modeloRoupa = modeloRoupa;
+		this.cor = cor;
+		this.corLinha = corLinha;
+		this.casaQuantd = CasaQuantd;
+		this.riataQuantd = riataQuantd;
+		this.preco = preco;
+		//this.precoTotal;
+		this.dataEntrada = dataEntrada;
+		this.dataSaida = dataSaida;
+		this.quantdPeca = quantdPeca;
+		this.cliente = cliente;
+	}
+
+	//getters and setters
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public String getModeloRoupa() {
+		return modeloRoupa;
+	}
+	public void setModeloRoupa(String modRoupa) {
+		this.modeloRoupa = modRoupa;
+	}
+	public String getCor() {
+		return cor;
+	}
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+	public String getCorLinha() {
+		return corLinha;
+	}
+	public void setCorLinha(String corLin) {
+		this.corLinha = corLin;
+	}
+	public int getcasaQuantd() {
+		return casaQuantd;
+	}
+	public void setCasaQuantd(int casaQtd) {
+		this.casaQuantd = casaQtd;
+	}
+	public int getRiataQuantd() {
+		return riataQuantd;
+	}
+	public void setRiataQuantd(int riata) {
+		this.riataQuantd = riata;
+	}
+	public double getPreco() {
+		return preco;
+	}
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+	public LocalDate getDataEntrada() {
+		return dataEntrada;
+	}
+	public void setDataEntrada(LocalDate dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
+	public LocalDate getDataSaida() {
+		return dataSaida;
+	}
+	public void setDataSaida(LocalDate dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+	public double getValorTotal() {
+		return valorTotal = this.getQuantdPeca() * this.getPreco();
+	}
+	
+	public int getQuantdPeca() {
+		return quantdPeca;
+	}
+	public void setQuantdPeca(int qtdPeca) {
+		this.quantdPeca = qtdPeca;
+	}
+	
+	public void status() {
+		System.out.print("Cliente: " + getCliente().getNome() + " Celular: " + getCliente().celular()
+						+ "\nModelo: " + this.getModeloRoupa() + " Quantidade de peça " + getQuantdPeca()
+						+ "\nPreço: R$ " + getPreco()
+						+ "Quantidade casa: " + this.getcasaQuantd()+ " Quantidade Riata: " + this.getRiataQuantd()
+					 + "\nValor: R$ " + this.getValorTotal());
+	}
+	public void statusCmpleto() {
+		System.out.print("Cliente: " + getCliente().getNome() + " Celular: " + getCliente().celular()
+				+ "\nEndereco: " 
+				+ "\nCidade: "+ getCliente().getEndereco().getCepCidade() + 
+				"Bairro: "+ getCliente().getEndereco().getBairro() + "Rua: " + getCliente().getEndereco().getRua() + " "
+				+"\nProdução" 
+				+"\nModelo: " + this.getModeloRoupa() + " Quantidade de peça " + getQuantdPeca()
+				+ "\nPreço: R$ " + getPreco()
+				+ "Quantidade casa: " + this.getcasaQuantd()+ " Quantidade Riata: " + this.getRiataQuantd()
+			 + "\nValor: R$ " + this.getValorTotal());
+	}
+}
