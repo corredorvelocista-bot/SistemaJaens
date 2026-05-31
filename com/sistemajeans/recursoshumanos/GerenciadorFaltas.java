@@ -16,6 +16,22 @@ public class GerenciadorFaltas {
 		this.funcionarios = funcionarios;
 	}
 
+	public LocalDate getDia() {
+		return dia;
+	}
+
+	public void setDia(LocalDate dia) {
+		this.dia = dia;
+	}
+
+	public LocalDate getMesFalta() {
+		return mesFalta;
+	}
+
+	public void setMesFalta(LocalDate mesFalta) {
+		this.mesFalta = mesFalta;
+	}
+
 	public GerenciadorFaltas() {
 		this.funcionarios = new ArrayList<>();
 	}
