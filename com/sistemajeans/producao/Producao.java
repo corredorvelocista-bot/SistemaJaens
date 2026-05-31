@@ -52,10 +52,12 @@ public class Producao {
 	public void setMaquinaEmTrabalho(int maquinaEmUso) {
 		this.maquinasEmTrabalho = maquinaEmUso;
 	}
-	public int MaquinasRestantes() {
-		int totalM = maquinas.getTotalMaquinas();
+	//metodo comentado para concertar mais tarde
+	/*public int MaquinasRestantes() {
+		//int totalM = maquinas.getTotalMaquinas();
 		return totalM - getMaquinaEmTrabalho();
 	}
+	*/
 	public LocalDate getDataSaida() {
 		return this.dataSaida;
 	}
@@ -66,7 +68,7 @@ public class Producao {
 	
 
 	public void ListaProducao() {
-		System.out.println("Cliente: "+ pecaRoupa.getCliente().getNome() +" Nº Ficha: "+ pecaRoupa.getNumeroFicha()+ " Quantidade: " + pecaRoupa.getQuantdPeca()
+		System.out.println("Cliente: "+ pecaRoupa.getCliente().getNome() +" Nº Ficha: "+ /*pecaRoupa.getNumeroFicha()+*/ " Quantidade: " + pecaRoupa.getQuantdPeca()
 				+ "\nModelo: " + pecaRoupa.getModeloRoupa() + " Quantidade casas: " + pecaRoupa.getcasaQuantd() 
 				+ " Quantidade Riata: " + pecaRoupa.getRiataQuantd() + "\nFuncionários" + "\nNome: " + funcionario.getNome()
 				+ " profissão: " + funcionario.getProfissao()
