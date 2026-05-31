@@ -107,7 +107,6 @@ public class Funcionario extends Pessoa{
 	@Override
 	public void status() {
 		System.out.println("Nome: " + this.getNome() + " Idade: " + this.getIdade() + " anos "
-									+ "Altura " + this.getAltura()
 									+ " Peso: " + this.getPeso());
 		System.out.println("Celular: " + this.getContatos().getCeclular());
 		System.out.println("Salário: R$" + this.getSalario() + " Turno:" + this.getTurno() 
@@ -118,7 +117,7 @@ public class Funcionario extends Pessoa{
 	@Override
 	public void statusCompleto() {
 		System.out.println("Nome: " + this.getNome() + " Idade: " + this.getIdade() + " anos "
-				+ "Altura " + this.getAltura() + " Peso: " + this.getPeso());
+				+ " Peso: " + this.getPeso());
 		System.out.println("Celular: " + this.getContatos().getCeclular() + " Celular 02: " + this.getContatos().getTelefone()
 				+ "\nEmail: " + this.getContatos().getEmail());
 		System.out.println("Salário: R$" + this.getSalario() + " Turno:" + this.getTurno() 

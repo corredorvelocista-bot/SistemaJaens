@@ -6,7 +6,6 @@ public abstract class Pessoa {
 	private String nome;
 	private int idade;
 	private float peso;
-	private float altura;
 	private String sexo;
 	private Endereco endereco;
 	private Contatos contatos;
@@ -25,12 +24,11 @@ public abstract class Pessoa {
 		this();
 		this.nome = nome;
 	}
-	public Pessoa(String nome, int idade, float peso, float altura, String sexo) {
+	public Pessoa(String nome, int idade, float peso, String sexo) {
 		this();
 		this.nome = nome;
 		this.idade = idade;
 		this.peso = peso;
-		this.altura = altura;
 		this.sexo = sexo;
 	}
 	
@@ -54,12 +52,7 @@ public abstract class Pessoa {
 	public void setPeso(float peso) {
 		this.peso = peso;
 	}
-	public float getAltura() {
-		return altura;
-	}
-	public void setAltura(float altura) {
-		this.altura = altura;
-	}
+	
 	public String getSexo() {
 		return sexo;
 	}
