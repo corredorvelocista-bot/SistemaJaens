@@ -1,26 +1,24 @@
 package com.sistemajeans.recursoshumanos;
-import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class GerenciadorFolhaPagamento {
-	private LocalDate horaExtra;
-	private LocalDate extrasAcumulados;
+	private LocalTime horaExtra;
+	private LocalTime extrasAcumulados;
 	
 	
-	public GerenciadorFolhaPagamento(LocalDate horaExtra, LocalDate extrasAcumulados) {
-		super();
+	public GerenciadorFolhaPagamento(LocalTime horaExtra) {
 		this.horaExtra = horaExtra;
-		this.extrasAcumulados = extrasAcumulados;
 	}
-	public LocalDate getHoraExtra() {
+	public LocalTime getHoraExtra() {
 		return horaExtra;
 	}
-	public void setHoraExtra(LocalDate horaExtra) {
+	public void setHoraExtra(LocalTime horaExtra) {
 		this.horaExtra = horaExtra;
 	}
-	public LocalDate getExtrasAcumulados() {
+	public LocalTime getExtrasAcumulados() {
 		return extrasAcumulados;
 	}
-	public void setExtrasAcumulados(LocalDate extrasAcumulados) {
+	public void setExtrasAcumulados(LocalTime extrasAcumulados) {
 		this.extrasAcumulados = extrasAcumulados;
 	}
 

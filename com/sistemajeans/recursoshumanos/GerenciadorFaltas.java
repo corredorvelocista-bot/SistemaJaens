@@ -5,23 +5,23 @@ import java.util.List;
 import java.time.LocalDate;
 
 public class GerenciadorFaltas {
-	private LocalDate dia;
+	private LocalDate diasFalta;//retorna o total de falta
 	private LocalDate mesFalta;
 	private List<Funcionario> funcionarios;
 	
 	public GerenciadorFaltas(LocalDate dia, LocalDate mesFalta, List<Funcionario> funcionarios) {
 		super();
-		this.dia = dia;
+		this.diasFalta = dia;
 		this.mesFalta = mesFalta;
 		this.funcionarios = funcionarios;
 	}
 
 	public LocalDate getDia() {
-		return dia;
+		return diasFalta;
 	}
 
 	public void setDia(LocalDate dia) {
-		this.dia = dia;
+		this.diasFalta = dia;
 	}
 
 	public LocalDate getMesFalta() {
